@@ -462,3 +462,146 @@ document.querySelectorAll('img').forEach(img => {
 });
 
 // End of file
+// ==========================================
+// 1. 3D Tilt Effect for Grid Cards
+// ==========================================
+const tiltCards = document.querySelectorAll('.teacher-card');
+tiltCards.forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = ((y - centerY) / centerY) * -8;
+    const rotateY = ((x - centerX) / centerX) * 8;
+    
+    card.style.transform = "perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)";
+    card.style.transition = 'transform 0.1s ease-out';
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease-out';
+  });
+});
+
+// ==========================================
+// 2. Magical Sparkle Cursor
+// ==========================================
+document.addEventListener('mousemove', function(e) {
+  if (Math.random() > 0.88) {
+    createSparkle(e.pageX, e.pageY);
+  }
+});
+
+function createSparkle(x, y) {
+  const sparkle = document.createElement('div');
+  sparkle.className = 'absolute rounded-full pointer-events-none z-50 mix-blend-screen';
+  const size = Math.random() * 4 + 2;
+  sparkle.style.width = ".${size}px";
+  sparkle.style.height = ".${size}px";
+  sparkle.style.left = ".${x}px";
+  sparkle.style.top = ".${y}px";
+  sparkle.style.backgroundColor = "hsl(.${Math.random() * 60 + 30}, 100%, 75%)";
+  sparkle.style.boxShadow = "0 0 .${size*2}px currentColor";
+  
+  document.body.appendChild(sparkle);
+  
+  const destY = y - (Math.random() * 40 + 20);
+  const destX = x + (Math.random() * 40 - 20);
+  
+  const animation = sparkle.animate([
+    { transform: 'translate(0, 0) scale(1)', opacity: 0.8 },
+    { transform: "translate(.${destX - x}px, .${destY - y}px) scale(0)", opacity: 0 }
+  ], {
+    duration: Math.random() * 600 + 400,
+    easing: 'cubic-bezier(0, .9, .57, 1)'
+  });
+  
+  animation.onfinish = () => sparkle.remove();
+}
+
+// ==========================================
+// 3. Developer Terminal Easter Egg
+// ==========================================
+const devModeBtn = document.getElementById('devModeBtn');
+const terminalOverlay = document.getElementById('terminalOverlay');
+const terminalWindow = document.getElementById('terminalWindow');
+const closeTerminal = document.getElementById('closeTerminal');
+const terminalBody = document.getElementById('terminalBody');
+
+if (devModeBtn) {
+  devModeBtn.addEventListener('click', () => {
+    terminalOverlay.classList.remove('hidden');
+    terminalOverlay.classList.add('flex');
+    setTimeout(() => {
+      terminalOverlay.classList.remove('opacity-0');
+      terminalWindow.classList.remove('scale-95');
+    }, 10);
+    document.body.style.overflow = 'hidden';
+    runTerminalSequence();
+  });
+}
+
+if (closeTerminal) {
+  closeTerminal.addEventListener('click', () => {
+    terminalOverlay.classList.add('opacity-0');
+    terminalWindow.classList.add('scale-95');
+    setTimeout(() => {
+      terminalOverlay.classList.add('hidden');
+      terminalOverlay.classList.remove('flex');
+      document.body.style.overflow = '';
+      terminalBody.innerHTML = '';
+    }, 300);
+  });
+}
+
+function runTerminalSequence() {
+  terminalBody.innerHTML = '';
+  const lines = [
+    '[INFO] Initializing gratitude_engine v1.0.0...',
+    '[INFO] Connecting to database: memories_and_milestones.db... SUCCESS',
+    '[WARN] Overwhelming support detected! Buffer overflow of appreciation.',
+    'Resolving dependencies...',
+    ' -> fetched: Patience from Ankit_Sir',
+    ' -> fetched: Creativity from Ayantika_Maam',
+    ' -> fetched: Technical_Wizardry from Debargha_Sir',
+    ' -> fetched: Positivity from Jyoti_Maam',
+    ' -> fetched: Visionary_Leadership from Anupam_Sir',
+    'Building project...',
+    '[===================================>] 100%',
+    'Build SUCCESS.',
+    ' ',
+    '> Executing final_message.js:',
+    ' ',
+    'Dear Core Team,',
+    'Thank you for compiling my scattered skills into a working professional.',
+    'I could not have asked for a better environment to debug my early career.',
+    'Without you, my code wouldnt compile, and my career wouldnt scale.',
+    'Happy Teachers Day!',
+    ' ',
+    'Process finished with exit code 0.'
+  ];
+  
+  let i = 0;
+  function printLine() {
+    if (i < lines.length) {
+      const line = document.createElement('div');
+      line.textContent = lines[i];
+      if (lines[i].includes('SUCCESS') || lines[i].includes('100%')) line.className = 'text-emerald-400';
+      if (lines[i].includes('WARN')) line.className = 'text-yellow-400';
+      if (lines[i].includes('Dear') || lines[i].includes('Thank') || lines[i].includes('Happy') || lines[i].includes('Without')) line.className = 'text-cyan-300 font-bold';
+      if (lines[i].startsWith('>')) line.className = 'text-white font-bold mt-2';
+      
+      terminalBody.appendChild(line);
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+      i++;
+      setTimeout(printLine, Math.random() * 200 + 50);
+    }
+  }
+  
+  setTimeout(printLine, 300);
+}

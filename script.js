@@ -15,55 +15,10 @@ themeToggle.addEventListener('click', () => {
   }
 });
 
-// Music Player Setup & Welcome Overlay
-const musicToggle = document.getElementById('musicToggle');
-const bgMusic = document.getElementById('bgMusic');
-const enterBtn = document.getElementById('enterBtn');
-const welcomeOverlay = document.getElementById('welcomeOverlay');
-let isMusicPlaying = false;
 
-// Lower volume to make it pleasant background music
-if(bgMusic) bgMusic.volume = 0.3;
-
-if(enterBtn && welcomeOverlay) {
-  enterBtn.addEventListener('click', () => {
-    welcomeOverlay.style.opacity = '0';
-    setTimeout(() => {
-      welcomeOverlay.remove();
-      document.body.style.overflow = '';
-    }, 1000);
-    
-    if(bgMusic) {
-      bgMusic.play().then(() => {
-        document.documentElement.classList.add('playing-music');
-        isMusicPlaying = true;
-      }).catch(e => console.log('Audio autoplay blocked', e));
-    }
-    
-    setTimeout(() => createConfetti(80), 500);
-  });
-  
-  // Prevent scrolling while overlay is active
-  document.body.style.overflow = 'hidden';
-}
-
-if(musicToggle) {
-  musicToggle.addEventListener('click', () => {
-    if (isMusicPlaying) {
-      bgMusic.pause();
-      document.documentElement.classList.remove('playing-music');
-    } else {
-      // Play might be blocked by browser policy until user interacts
-      bgMusic.play().then(() => {
-        document.documentElement.classList.add('playing-music');
-      }).catch(e => {
-        console.log("Audio play failed:", e);
-        showToast('Please interact with the page first to play music.');
-      });
-    }
-    isMusicPlaying = !isMusicPlaying;
-  });
-}
+window.addEventListener('load', () => {
+  setTimeout(() => createConfetti(80), 500);
+});
 
 // Smooth Scroll to Quotes
 document.getElementById('scrollDownBtn')?.addEventListener('click', () => {

@@ -38,21 +38,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="antialiased bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-500 overflow-x-hidden selection:bg-brand-500 selection:text-white">
-  
-  <!-- Welcome Overlay for Autoplay Music -->
-  <div id="welcomeOverlay" class="fixed inset-0 z-[100] bg-slate-900 flex flex-col items-center justify-center transition-opacity duration-1000">
-    <div class="relative w-24 h-24 mb-8">
-      <div class="absolute inset-0 bg-brand-500 rounded-full animate-ping opacity-20"></div>
-      <div class="absolute inset-2 bg-brand-600 rounded-full animate-pulse opacity-40"></div>
-    </div>
-    <h1 class="text-4xl sm:text-5xl font-serif font-bold text-white mb-4 tracking-wide text-center px-4 drop-shadow-lg">A Special Tribute</h1>
-    <p class="text-brand-200 mb-10 text-lg font-light text-center px-4">For the mentors who shaped my journey.</p>
-    <button id="enterBtn" class="px-10 py-4 rounded-full bg-gradient-to-r from-brand-400 to-brand-600 text-white font-bold text-lg hover:scale-110 transition-transform duration-300 shadow-[0_0_30px_rgba(163,124,107,0.4)] hover:shadow-[0_0_40px_rgba(163,124,107,0.6)] focus:outline-none">
-      Enter Experience
-    </button>
-  </div>
-
-  <!-- Ambient Background -->
+    <!-- Ambient Background -->
   <div class="ambient-bg pointer-events-none fixed inset-0 z-[-1]">
     <div class="ambient-blob w-96 h-96 bg-rose-200 dark:bg-rose-900/30 rounded-full blur-3xl absolute top-10 left-10 opacity-60"></div>
     <div class="ambient-blob w-96 h-96 bg-amber-200 dark:bg-amber-900/30 rounded-full blur-3xl absolute bottom-10 right-10 opacity-60"></div>
@@ -65,10 +51,6 @@
         <span class="text-brand-500">Teachers'</span> Day
       </h1>
       <div class="flex items-center gap-4">
-        <button id="musicToggle" aria-label="Toggle background music" class="nav-btn group" title="Play Music">
-          <svg class="w-5 h-5 text-slate-600 dark:text-slate-300 group-hover:text-brand-500 transition-colors play-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <svg class="w-5 h-5 text-brand-500 hidden pause-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        </button>
         <button id="themeToggle" aria-label="Toggle dark mode" class="nav-btn" title="Toggle Theme">
           <span class="dark-icon hidden">☀️</span>
           <span class="light-icon">🌙</span>
@@ -190,7 +172,7 @@
     <!-- Seniors Grid Layout (Centered Project Manager) -->
     <section id="teachers-grid" class="max-w-6xl mx-auto px-6 mb-24">
       <div class="text-center mb-10 reveal-up">
-        <h3 class="text-3xl font-serif font-bold text-slate-800 dark:text-white">The Core Team</h3>
+        <h3 class="text-3xl font-serif font-bold text-slate-800 dark:text-white">My Mentors</h3>
         <p class="text-slate-500 mt-2">To the incredible leaders who make everything possible.</p>
       </div>
 
@@ -205,7 +187,7 @@
             </div>
             <h4 class="text-2xl font-serif font-bold mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors text-slate-800 dark:text-white">Anupam Sir</h4>
             <p class="text-brand-600 dark:text-brand-400 font-bold text-sm tracking-wide uppercase mb-4">Project Manager</p>
-            <p class="text-sm italic text-slate-600 dark:text-slate-300">"Your leadership makes difficult tasks manageable."</p>
+            <p class="text-sm italic text-slate-600 dark:text-slate-300">"An inspiring leader with unmatched vision and clarity."</p>
           </div>
         </article>
       </div>
@@ -222,7 +204,7 @@
             </div>
             <h4 class="text-lg font-serif font-bold mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Ankit Sir</h4>
             <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3 uppercase tracking-wider">Senior Engineer</p>
-            <p class="text-xs italic text-slate-600 dark:text-slate-300 line-clamp-3">"Your support has helped me grow professionally."</p>
+            <p class="text-xs italic text-slate-600 dark:text-slate-300 line-clamp-3">"The most patient guide a fresher could ever ask for."</p>
           </div>
         </article>
 
@@ -235,7 +217,7 @@
             </div>
             <h4 class="text-lg font-serif font-bold mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Ayantika Ma'am</h4>
             <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3 uppercase tracking-wider">Senior Engineer</p>
-            <p class="text-xs italic text-slate-600 dark:text-slate-300 line-clamp-3">"You inspire thoughtful, creative solutions."</p>
+            <p class="text-xs italic text-slate-600 dark:text-slate-300 line-clamp-3">"Fostering innovation and creative problem-solving."</p>
           </div>
         </article>
 
@@ -248,7 +230,7 @@
             </div>
             <h4 class="text-lg font-serif font-bold mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Debargha Sir</h4>
             <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3 uppercase tracking-wider">Senior Engineer</p>
-            <p class="text-xs italic text-slate-600 dark:text-slate-300 line-clamp-3">"Your mentorship made difficult topics approachable."</p>
+            <p class="text-xs italic text-slate-600 dark:text-slate-300 line-clamp-3">"A technical wizard who simplifies the complex."</p>
           </div>
         </article>
 
@@ -261,7 +243,7 @@
             </div>
             <h4 class="text-lg font-serif font-bold mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Jyoti Ma'am</h4>
             <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3 uppercase tracking-wider">Senior Engineer</p>
-            <p class="text-xs italic text-slate-600 dark:text-slate-300 line-clamp-3">"Your encouragement boosts my confidence every day."</p>
+            <p class="text-xs italic text-slate-600 dark:text-slate-300 line-clamp-3">"The heart of the team, always radiating positivity."</p>
           </div>
         </article>
 

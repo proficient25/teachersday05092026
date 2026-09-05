@@ -1,9 +1,9 @@
 const themeToggle = document.getElementById('themeToggle');
-// Check local storage or system preference
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.documentElement.classList.add('dark');
-} else {
+// Default to dark mode unless user explicitly selected light
+if (localStorage.theme === 'light') {
   document.documentElement.classList.remove('dark');
+} else {
+  document.documentElement.classList.add('dark');
 }
 
 themeToggle.addEventListener('click', () => {

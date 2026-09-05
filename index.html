@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Teachers' Day - A Tribute to My Seniors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            brand: {
+              50: '#fdf8f6',
+              100: '#f2e8e5',
+              200: '#eaddd7',
+              300: '#e0cec7',
+              400: '#d2bab0',
+              500: '#a37c6b',
+              600: '#8c6b5d',
+              700: '#75584c',
+              800: '#5c453b',
+              900: '#44332c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-500 overflow-x-hidden selection:bg-brand-500 selection:text-white">
+  
+  <!-- Welcome Overlay for Autoplay Music -->
+  <div id="welcomeOverlay" class="fixed inset-0 z-[100] bg-slate-900 flex flex-col items-center justify-center transition-opacity duration-1000">
+    <div class="relative w-24 h-24 mb-8">
+      <div class="absolute inset-0 bg-brand-500 rounded-full animate-ping opacity-20"></div>
+      <div class="absolute inset-2 bg-brand-600 rounded-full animate-pulse opacity-40"></div>
+    </div>
+    <h1 class="text-4xl sm:text-5xl font-serif font-bold text-white mb-4 tracking-wide text-center px-4 drop-shadow-lg">A Special Tribute</h1>
+    <p class="text-brand-200 mb-10 text-lg font-light text-center px-4">For the mentors who shaped my journey.</p>
+    <button id="enterBtn" class="px-10 py-4 rounded-full bg-gradient-to-r from-brand-400 to-brand-600 text-white font-bold text-lg hover:scale-110 transition-transform duration-300 shadow-[0_0_30px_rgba(163,124,107,0.4)] hover:shadow-[0_0_40px_rgba(163,124,107,0.6)] focus:outline-none">
+      Enter Experience
+    </button>
+  </div>
+
+  <!-- Ambient Background -->
+  <div class="ambient-bg pointer-events-none fixed inset-0 z-[-1]">
+    <div class="ambient-blob w-96 h-96 bg-rose-200 dark:bg-rose-900/30 rounded-full blur-3xl absolute top-10 left-10 opacity-60"></div>
+    <div class="ambient-blob w-96 h-96 bg-amber-200 dark:bg-amber-900/30 rounded-full blur-3xl absolute bottom-10 right-10 opacity-60"></div>
+    <div class="ambient-blob w-[30rem] h-[30rem] bg-indigo-200 dark:bg-indigo-900/30 rounded-full blur-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40"></div>
+  </div>
+
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <h1 class="text-xl sm:text-2xl font-serif font-bold tracking-tight text-brand-900 dark:text-brand-100">
+        <span class="text-brand-500">Teachers'</span> Day
+      </h1>
+      <div class="flex items-center gap-4">
+        <button id="musicToggle" aria-label="Toggle background music" class="nav-btn group" title="Play Music">
+          <svg class="w-5 h-5 text-slate-600 dark:text-slate-300 group-hover:text-brand-500 transition-colors play-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <svg class="w-5 h-5 text-brand-500 hidden pause-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </button>
+        <button id="themeToggle" aria-label="Toggle dark mode" class="nav-btn" title="Toggle Theme">
+          <span class="dark-icon hidden">☀️</span>
+          <span class="light-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20">
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-6 mb-20 text-center flex flex-col items-center justify-center min-h-[50vh]">
+      <div class="reveal-up">
+        <h2 class="text-4xl sm:text-6xl font-serif font-bold mb-6 text-slate-900 dark:text-white leading-tight drop-shadow-sm">
+          To the Guiding Lights <br> of My Journey
+        </h2>
+        <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+          Happy Teachers' Day to the seniors and mentors who have inspired me, supported me, and helped me grow. Your wisdom and patience are the absolute foundation of my success. I am deeply grateful for the paths you have illuminated for me.
+        </p>
+        <button id="scrollDownBtn" class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-medium transition-all hover:scale-105 shadow-lg hover:shadow-brand-500/30">
+          Explore My Gratitude 
+          <svg class="w-4 h-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Meaningful Quotes -->
+    <section id="quotes" class="max-w-4xl mx-auto px-6 mb-24 reveal-up">
+      <div class="relative bg-white/40 dark:bg-slate-800/40 backdrop-blur-lg rounded-3xl p-8 sm:p-12 shadow-xl border border-white/20 dark:border-slate-700/50 text-center">
+        <svg class="absolute top-6 left-6 w-10 h-10 text-brand-500/20" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+        <p class="text-xl sm:text-2xl font-serif italic text-slate-700 dark:text-slate-200 mb-6 relative z-10 leading-relaxed">
+          "A mentor is someone who allows you to see the hope inside yourself. Thank you for always believing in my potential even when I doubted it, and for continuously pushing me to be the best version of myself."
+        </p>
+        <div class="w-16 h-1 bg-brand-500 mx-auto rounded-full"></div>
+      </div>
+    </section>
+
+    <!-- Seniors Carousel -->
+    <section id="seniors-gallery" class="max-w-6xl mx-auto px-6 mb-24 scroll-mt-28">
+      <div class="text-center mb-12 reveal-up">
+        <h3 class="text-3xl font-serif font-bold mb-4">My Mentors & Guides</h3>
+        <p class="text-slate-600 dark:text-slate-400">A special visual tribute to those who led by example.</p>
+      </div>
+      
+      <div class="relative max-w-4xl mx-auto reveal-up">
+        <div id="heroSlider" class="relative rounded-3xl overflow-hidden shadow-2xl h-[400px] sm:h-[500px] bg-slate-900 group cursor-pointer border border-slate-700/50">
+          <div class="slides w-full h-full relative">
+            
+            <!-- Slide 1 (Anupam Sir - Project Manager) -->
+            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out" data-name="Anupam Sir" data-title="Project Manager" data-msg="Thanks for making hard tasks simple and steering our projects to success. Your deep knowledge and approachability make you an exceptional Project Manager and mentor." data-quote="\"Your leadership makes difficult tasks manageable.\"" data-img="img/AnupamSir.jpg">
+              <img src="img/AnupamSir.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30 blur-2xl pointer-events-none">
+              <img src="img/AnupamSir.jpg" alt="Anupam Sir" class="relative w-full h-full object-contain slide-img scale-105 transition-transform duration-[10000ms] ease-linear z-10">
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-end p-8 sm:p-12 pointer-events-none z-20">
+                <span class="inline-block px-3 py-1 bg-brand-500 text-white text-xs font-bold rounded-full mb-3 w-max opacity-0 transition-all duration-700 delay-50 slide-content translate-y-4">Project Manager</span>
+                <h4 class="text-3xl font-bold text-white mb-2 font-serif translate-y-4 opacity-0 transition-all duration-700 delay-100 slide-content drop-shadow-md">Anupam Sir</h4>
+                <p class="text-slate-200 text-lg max-w-xl translate-y-4 opacity-0 transition-all duration-700 delay-200 slide-content drop-shadow-sm">"Your leadership makes difficult tasks manageable."</p>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out" data-name="Ankit Sir" data-title="Senior Engineer" data-msg="Thank you for your immense patience and guidance. Your ability to break down complex issues has been a lifesaver." data-quote="\"Your support has helped me grow professionally.\"" data-img="img/AnkitSir.jpg">
+              <img src="img/AnkitSir.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30 blur-2xl pointer-events-none">
+              <img src="img/AnkitSir.jpg" alt="Ankit Sir" class="relative w-full h-full object-contain slide-img scale-105 transition-transform duration-[10000ms] ease-linear z-10">
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-end p-8 sm:p-12 pointer-events-none z-20">
+                <h4 class="text-3xl font-bold text-white mb-2 font-serif translate-y-4 opacity-0 transition-all duration-700 delay-100 slide-content drop-shadow-md">Ankit Sir</h4>
+                <p class="text-slate-200 text-lg max-w-xl translate-y-4 opacity-0 transition-all duration-700 delay-200 slide-content drop-shadow-sm">"Your support has helped me grow professionally."</p>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out" data-name="Ayantika Ma'am" data-title="Senior Engineer" data-msg="Thank you for fostering a creative environment. You inspire me to think out of the box and innovate." data-quote="\"You inspire thoughtful, creative solutions.\"" data-img="img/AyantikaMaam.webp">
+              <img src="img/AyantikaMaam.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30 blur-2xl pointer-events-none">
+              <img src="img/AyantikaMaam.webp" alt="Ayantika Ma'am" class="relative w-full h-full object-contain slide-img scale-105 transition-transform duration-[10000ms] ease-linear z-10">
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-end p-8 sm:p-12 pointer-events-none z-20">
+                <h4 class="text-3xl font-bold text-white mb-2 font-serif translate-y-4 opacity-0 transition-all duration-700 delay-100 slide-content drop-shadow-md">Ayantika Ma'am</h4>
+                <p class="text-slate-200 text-lg max-w-xl translate-y-4 opacity-0 transition-all duration-700 delay-200 slide-content drop-shadow-sm">"You inspire thoughtful, creative solutions."</p>
+              </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out" data-name="Debargha Sir" data-title="Senior Engineer" data-msg="Thanks for mentoring me through the toughest technical challenges. Your expertise is unmatched." data-quote="\"Your mentorship made difficult topics approachable.\"" data-img="img/DevarghaSir.jpeg">
+              <img src="img/DevarghaSir.jpeg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30 blur-2xl pointer-events-none">
+              <img src="img/DevarghaSir.jpeg" alt="Debargha Sir" class="relative w-full h-full object-contain slide-img scale-105 transition-transform duration-[10000ms] ease-linear z-10">
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-end p-8 sm:p-12 pointer-events-none z-20">
+                <h4 class="text-3xl font-bold text-white mb-2 font-serif translate-y-4 opacity-0 transition-all duration-700 delay-100 slide-content drop-shadow-md">Debargha Sir</h4>
+                <p class="text-slate-200 text-lg max-w-xl translate-y-4 opacity-0 transition-all duration-700 delay-200 slide-content drop-shadow-sm">"Your mentorship made difficult topics approachable."</p>
+              </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out" data-name="Jyoti Ma'am" data-title="Senior Engineer" data-msg="Thank you for always encouraging me and bringing positivity to the team. You boost my morale every single day." data-quote="\"Your encouragement boosts my confidence every day.\"" data-img="img/JyotiMaam.jpg">
+              <img src="img/JyotiMaam.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30 blur-2xl pointer-events-none">
+              <img src="img/JyotiMaam.jpg" alt="Jyoti Ma'am" class="relative w-full h-full object-contain slide-img scale-105 transition-transform duration-[10000ms] ease-linear z-10">
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-end p-8 sm:p-12 pointer-events-none z-20">
+                <h4 class="text-3xl font-bold text-white mb-2 font-serif translate-y-4 opacity-0 transition-all duration-700 delay-100 slide-content drop-shadow-md">Jyoti Ma'am</h4>
+                <p class="text-slate-200 text-lg max-w-xl translate-y-4 opacity-0 transition-all duration-700 delay-200 slide-content drop-shadow-sm">"Your encouragement boosts my confidence every day."</p>
+              </div>
+            </div>
+
+          </div>
+          
+          <!-- Slider Controls -->
+          <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 hover:bg-black/70 text-white p-3 backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 z-30" aria-label="Previous Slide">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          </button>
+          <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 hover:bg-black/70 text-white p-3 backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 z-30" aria-label="Next Slide">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+          
+          <div id="sliderDots" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-30"></div>
+          
+          <div class="absolute top-6 right-6 z-30 flex gap-3">
+            <button id="heroNote" class="px-4 py-2 text-sm font-medium rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur-md transition-colors shadow-lg border border-white/20">Leave a Note</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seniors Grid Layout (Centered Project Manager) -->
+    <section id="teachers-grid" class="max-w-6xl mx-auto px-6 mb-24">
+      <div class="text-center mb-10 reveal-up">
+        <h3 class="text-3xl font-serif font-bold text-slate-800 dark:text-white">The Core Team</h3>
+        <p class="text-slate-500 mt-2">To the incredible leaders who make everything possible.</p>
+      </div>
+
+      <!-- Project Manager (Center Top) -->
+      <div class="flex justify-center mb-12 reveal-up">
+        <article class="teacher-card group relative bg-white/60 dark:bg-slate-800/60 backdrop-blur-md border border-brand-200 dark:border-brand-900 rounded-3xl p-8 cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden w-full max-w-sm text-center shadow-xl" data-name="Anupam Sir" data-title="Project Manager" data-msg="Thanks for making hard tasks simple and steering our projects to success. Your deep knowledge and approachability make you an exceptional Project Manager and mentor." data-quote="\"Your leadership makes difficult tasks manageable.\"" data-img="img/AnupamSir.jpg" tabindex="0">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-400 to-brand-600"></div>
+          <div class="relative z-10 flex flex-col items-center">
+            <div class="w-32 h-32 mb-5 rounded-full overflow-hidden ring-4 ring-white dark:ring-slate-700 shadow-xl group-hover:ring-brand-400 transition-colors duration-500">
+              <img src="img/AnupamSir.jpg" alt="Anupam Sir" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <h4 class="text-2xl font-serif font-bold mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors text-slate-800 dark:text-white">Anupam Sir</h4>
+            <p class="text-brand-600 dark:text-brand-400 font-bold text-sm tracking-wide uppercase mb-4">Project Manager</p>
+            <p class="text-sm italic text-slate-600 dark:text-slate-300">"Your leadership makes difficult tasks manageable."</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Other Seniors (Grid of 4) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Card: Ankit -->
+        <article class="teacher-card group relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-3xl p-6 cursor-pointer hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden reveal-up delay-100" data-name="Ankit Sir" data-title="Senior Engineer" data-msg="Thank you for your immense patience and guidance. Your ability to break down complex issues has been a lifesaver." data-quote="\"Your support has helped me grow professionally.\"" data-img="img/AnkitSir.jpg" tabindex="0">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex flex-col items-center text-center">
+            <div class="w-24 h-24 mb-4 rounded-full overflow-hidden ring-4 ring-white dark:ring-slate-700 shadow-md group-hover:ring-brand-200 transition-colors duration-500">
+              <img src="img/AnkitSir.jpg" alt="Ankit Sir" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <h4 class="text-lg font-serif font-bold mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Ankit Sir</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3 uppercase tracking-wider">Senior Engineer</p>
+            <p class="text-xs italic text-slate-600 dark:text-slate-300 line-clamp-3">"Your support has helped me grow professionally."</p>
+          </div>
+        </article>
+
+        <!-- Card: Ayantika -->
+        <article class="teacher-card group relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-3xl p-6 cursor-pointer hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden reveal-up delay-200" data-name="Ayantika Ma'am" data-title="Senior Engineer" data-msg="Thank you for fostering a creative environment. You inspire me to think out of the box and innovate." data-quote="\"You inspire thoughtful, creative solutions.\"" data-img="img/AyantikaMaam.webp" tabindex="0">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex flex-col items-center text-center">
+            <div class="w-24 h-24 mb-4 rounded-full overflow-hidden ring-4 ring-white dark:ring-slate-700 shadow-md group-hover:ring-brand-200 transition-colors duration-500">
+              <img src="img/AyantikaMaam.webp" alt="Ayantika Ma'am" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <h4 class="text-lg font-serif font-bold mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Ayantika Ma'am</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3 uppercase tracking-wider">Senior Engineer</p>
+            <p class="text-xs italic text-slate-600 dark:text-slate-300 line-clamp-3">"You inspire thoughtful, creative solutions."</p>
+          </div>
+        </article>
+
+        <!-- Card: Debargha -->
+        <article class="teacher-card group relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-3xl p-6 cursor-pointer hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden reveal-up delay-300" data-name="Debargha Sir" data-title="Senior Engineer" data-msg="Thanks for mentoring me through the toughest technical challenges. Your expertise is unmatched." data-quote="\"Your mentorship made difficult topics approachable.\"" data-img="img/DevarghaSir.jpeg" tabindex="0">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex flex-col items-center text-center">
+            <div class="w-24 h-24 mb-4 rounded-full overflow-hidden ring-4 ring-white dark:ring-slate-700 shadow-md group-hover:ring-brand-200 transition-colors duration-500">
+              <img src="img/DevarghaSir.jpeg" alt="Debargha Sir" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <h4 class="text-lg font-serif font-bold mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Debargha Sir</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3 uppercase tracking-wider">Senior Engineer</p>
+            <p class="text-xs italic text-slate-600 dark:text-slate-300 line-clamp-3">"Your mentorship made difficult topics approachable."</p>
+          </div>
+        </article>
+
+        <!-- Card: Jyoti -->
+        <article class="teacher-card group relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-3xl p-6 cursor-pointer hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden reveal-up delay-400" data-name="Jyoti Ma'am" data-title="Senior Engineer" data-msg="Thank you for always encouraging me and bringing positivity to the team. You boost my morale every single day." data-quote="\"Your encouragement boosts my confidence every day.\"" data-img="img/JyotiMaam.jpg" tabindex="0">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex flex-col items-center text-center">
+            <div class="w-24 h-24 mb-4 rounded-full overflow-hidden ring-4 ring-white dark:ring-slate-700 shadow-md group-hover:ring-brand-200 transition-colors duration-500">
+              <img src="img/JyotiMaam.jpg" alt="Jyoti Ma'am" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <h4 class="text-lg font-serif font-bold mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Jyoti Ma'am</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3 uppercase tracking-wider">Senior Engineer</p>
+            <p class="text-xs italic text-slate-600 dark:text-slate-300 line-clamp-3">"Your encouragement boosts my confidence every day."</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Additional Content / Quotes Section -->
+    <section class="max-w-4xl mx-auto px-6 mb-24 reveal-up">
+      <div class="bg-gradient-to-r from-brand-50 to-brand-100 dark:from-slate-800/80 dark:to-slate-800/40 rounded-3xl p-8 sm:p-12 shadow-sm border border-brand-200/50 dark:border-slate-700/50 text-center relative">
+        <h3 class="text-2xl sm:text-3xl font-serif font-bold mb-8 text-brand-900 dark:text-white">Why Your Guidance Matters</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+          <div class="bg-white/60 dark:bg-slate-900/40 p-6 rounded-2xl shadow-sm">
+            <svg class="w-8 h-8 text-brand-400 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+            <p class="text-slate-700 dark:text-slate-300 italic">"Good teaching is more a giving of right questions than a giving of right answers. You have consistently taught me how to think, rather than what to think."</p>
+          </div>
+          <div class="bg-white/60 dark:bg-slate-900/40 p-6 rounded-2xl shadow-sm">
+            <svg class="w-8 h-8 text-brand-400 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+            <p class="text-slate-700 dark:text-slate-300 italic">"The delicate balance of mentoring someone is not creating them in your own image, but giving them the opportunity to create themselves. Thank you for giving me that freedom."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section id="highlights" class="max-w-6xl mx-auto px-6 mb-12">
+      <div class="bg-gradient-to-r from-brand-800 to-brand-600 dark:from-slate-800 dark:to-slate-700 rounded-3xl p-8 sm:p-12 text-white shadow-2xl reveal-up relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-black/20 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="relative z-10">
+          <h3 class="text-3xl font-serif font-bold mb-8 text-center">The Pillars of a Fresher's Journey</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="p-6 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md hover:bg-white/20 transition-colors"> 
+              <h4 class="font-bold text-xl mb-3 flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                The Project Manager
+              </h4>
+              <p class="text-sm text-brand-100 leading-relaxed">For a fresher, the tech world can feel incredibly overwhelming. Having a visionary Project Manager like Anupam Sir provides a clear roadmap. He turns daunting challenges into manageable goals, ensuring I never feel lost and always understand the bigger picture.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md hover:bg-white/20 transition-colors"> 
+              <h4 class="font-bold text-xl mb-3 flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                Guidance from Seniors
+              </h4>
+              <p class="text-sm text-brand-100 leading-relaxed">The leap from textbook theory to real-world engineering is huge. My seniors patiently bridge that gap every day. They review my code, share practical wisdom, and teach me industry best practices that no tutorial or bootcamp could ever offer.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md hover:bg-white/20 transition-colors"> 
+              <h4 class="font-bold text-xl mb-3 flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                A Safe Space to Grow
+              </h4>
+              <p class="text-sm text-brand-100 leading-relaxed">A great team allows you to make mistakes and learn from them without fear. The incredible support I've received has given me the confidence to step out of my comfort zone, ask questions without hesitation, and truly begin to innovate.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 text-center text-sm text-slate-500 dark:text-slate-400 mt-auto">
+    <p class="flex items-center justify-center gap-2">
+      Made with <svg class="w-4 h-4 text-rose-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> for Teachers' Day
+    </p>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 z-[60] bg-slate-900/60 backdrop-blur-md hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+    <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 border border-slate-200 dark:border-slate-700 flex flex-col max-h-[90vh]">
+      <div class="relative h-64 sm:h-72 shrink-0 bg-slate-900">
+        <button id="modalClose" class="absolute right-4 top-4 bg-black/40 hover:bg-black/60 text-white rounded-full p-2 backdrop-blur-md transition-colors z-30" aria-label="Close modal">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <!-- Modal Image Blur Background -->
+        <img id="modalImgBg" src="" alt="" class="absolute inset-0 w-full h-full object-cover opacity-40 blur-2xl z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent z-10 pointer-events-none"></div>
+        <!-- Modal Image Foreground -->
+        <img id="modalImg" src="" alt="" class="absolute inset-0 w-full h-full object-contain object-center z-20">
+        
+        <div class="absolute bottom-6 left-6 z-30">
+          <h4 id="modalName" class="text-3xl font-serif font-bold text-white mb-1 drop-shadow-md"></h4>
+          <p id="modalTitle" class="text-brand-200 text-sm font-medium drop-shadow-md">Mentor & Guide</p>
+        </div>
+      </div>
+      <div class="p-6 sm:p-8 overflow-y-auto">
+        <div class="flex items-start gap-4 mb-6">
+          <svg class="w-8 h-8 text-brand-500 shrink-0 mt-1 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+          <div>
+            <p id="modalMsg" class="text-slate-700 dark:text-slate-300 leading-relaxed font-medium"></p>
+            <p id="modalQuote" class="mt-3 text-sm text-brand-600 dark:text-brand-400 italic"></p>
+          </div>
+        </div>
+        
+        <div class="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-4 border border-slate-100 dark:border-slate-800">
+          <label for="noteInput" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Leave a Personal Note <span class="text-slate-400 font-normal">(Optional)</span></label>
+          <textarea id="noteInput" class="w-full bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-shadow resize-none text-slate-800 dark:text-slate-100" rows="3" placeholder="Write a quick thank you message to express your gratitude..."></textarea>
+        </div>
+        
+        <div class="mt-8 flex flex-wrap gap-3 justify-end">
+          <button id="saveNote" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-white font-medium rounded-xl transition-colors">Save Note</button>
+          <button id="downloadCard" class="px-5 py-2.5 bg-brand-500 hover:bg-brand-600 text-white font-medium rounded-xl transition-colors shadow-lg shadow-brand-500/20 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download Card
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confettiCanvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
+
+  <!-- Audio Element (Gentle classical music for a warm feel) -->
+  <audio id="bgMusic" loop>
+    <source src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Gymnopedie_No_1.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
